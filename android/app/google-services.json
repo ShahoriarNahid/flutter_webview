@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "267969651778",
+    "project_id": "fir-push-notification-71a8c",
+    "storage_bucket": "fir-push-notification-71a8c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267969651778:android:1576c51bf68c052b20f9db",
+        "android_client_info": {
+          "package_name": "com.example.flutter_webview"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt4xBBSjk5NkWBykYRjLpzQ1FHWFlDYDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267969651778:android:420673c14f647c7020f9db",
+        "android_client_info": {
+          "package_name": "com.example.push_notification"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt4xBBSjk5NkWBykYRjLpzQ1FHWFlDYDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267969651778:android:9f90aea1d0cc4dc020f9db",
+        "android_client_info": {
+          "package_name": "com.example.todo_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt4xBBSjk5NkWBykYRjLpzQ1FHWFlDYDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

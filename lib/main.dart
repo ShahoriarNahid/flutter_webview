@@ -1,15 +1,16 @@
 // Copyright 2013 The Flutter Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
-// ignore_for_file: public_member_api_docs
-
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_webview/helpers/k_log.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
   runApp(const MaterialApp(
@@ -26,12 +27,18 @@ class WebViewExample extends StatefulWidget {
 }
 
 class _WebViewExampleState extends State<WebViewExample> {
+  final FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
+
   late final WebViewController controller;
 
   @override
   void initState() {
     super.initState();
-
+    firebaseMessaging.requestPermission();
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      // Handle the message here
+      kLog('Message received: ${message.notification?.title}');
+    });
     // #docregion webview_controller
     controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -52,7 +59,7 @@ class _WebViewExampleState extends State<WebViewExample> {
           },
         ),
       )
-      ..loadRequest(Uri.parse('https://www.youtube.com/'));
+      ..loadRequest(Uri.parse('https://flutter.dev/'));
     // ..loadRequest(Uri.parse('https://tequil.io/'));
     // #enddocregion webview_controller
   }
