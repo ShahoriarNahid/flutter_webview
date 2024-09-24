@@ -5,15 +5,26 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_webview/base/base_bindings.dart';
 import 'package:flutter_webview/helpers/k_log.dart';
+import 'package:flutter_webview/services/notification_service.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import 'base/base.dart';
+
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await NotificationService.init();
+
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
-  runApp(const MaterialApp(
+  runApp(GetMaterialApp(
+    initialBinding: BaseBindings(),
     home: WebViewExample(),
     debugShowCheckedModeBanner: false,
   ));
@@ -32,12 +43,14 @@ class _WebViewExampleState extends State<WebViewExample> {
   late final WebViewController controller;
 
   @override
-  void initState() {
+  void initState() async{
     super.initState();
     firebaseMessaging.requestPermission();
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       // Handle the message here
       kLog('Message received: ${message.notification?.title}');
+      Base.notificationController
+          .sendNotification(message.notification!.title!);
     });
     // #docregion webview_controller
     controller = WebViewController()

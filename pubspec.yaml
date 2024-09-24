@@ -23,6 +23,10 @@ dependencies:
   webview_flutter_wkwebview:
   firebase_core:
   firebase_messaging:
+  flutter_local_notifications:
+  rxdart:
+  get:
+
   
 
 dev_dependencies:
