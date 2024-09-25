@@ -26,6 +26,7 @@ dependencies:
   flutter_local_notifications:
   rxdart:
   get:
+  onesignal_flutter:
 
   
 

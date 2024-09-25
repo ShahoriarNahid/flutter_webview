@@ -10,6 +10,9 @@ buildscript {
         classpath 'com.google.gms:google-services:4.4.2'
         // END: FlutterFire Configuration
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // implementation 'com.onesignal:OneSignal:[5.0.0, 5.99.99]'
+
+
         
     }
 }
