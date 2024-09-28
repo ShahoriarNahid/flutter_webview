@@ -8,7 +8,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_webview/base/base_bindings.dart';
 import 'package:flutter_webview/splash_page.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import 'base/base.dart';
