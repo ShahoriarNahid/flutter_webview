@@ -27,6 +27,8 @@ class NotificationController extends GetxController {
       kLog('OneSignal user changed: $userState');
     });
 
+   await  OneSignal.Notifications.requestPermission(true);
+
     OneSignal.Notifications.addPermissionObserver((state) {
       kLog("Has permission $state");
     });
